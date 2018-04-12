@@ -3,19 +3,18 @@ const cross = require("cross");
 
 const url = "http:/localhost:3010";
 
-fetch(`${url}/todo`)
-  .then(rawResponse => {
-    console.log("---------------------------------");
-    console.log("get All");
-    console.log(rawResponse.data);
-    // rawResponse.data();
-  })
+// fetch(`${url}/todo`)
+//   .then(rawResponse => {
+//     console.log("---------------------------------");
+//     console.log("get All");
+//     console.log(rawResponse.data);
+//     // rawResponse.data();
+//   })
+//   .catch(function(error) {
+//     console.log(error);
+//   });
 
-  .catch(function(error) {
-    console.log(error);
-  });
-
-// get All
+// get Allnode
 const getAll = () => {
   return axios
     .get(`${url}/todo`)
