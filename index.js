@@ -2,8 +2,7 @@ const express = require("express");
 const app = express();
 let bodyParser = require("body-parser");
 
-let todoList = [
-  {
+let todoList = [{
     todo: "learn express",
     done: true
   },
@@ -13,8 +12,9 @@ let todoList = [
   }
 ];
 
-
-app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 
 // parse application/json
 app.use(bodyParser.json());
@@ -41,7 +41,9 @@ app.get("/todo/:id", (req, res) => {
   if (index > length - 1) {
     res.send("not found");
   } else {
-    res.send({ data: todoList[index]});
+    res.send({
+      data: todoList[index]
+    });
   }
 });
 
@@ -50,11 +52,22 @@ app.delete("/todo/:id", (req, res) => {
   let index = req.params.id;
 
   if (index > length - 1) {
-    res.send({ success: false, message: "data not found"});
+    res.send({
+      success: false,
+      message: "data not found"
+    });
   } else {
     todoList.splice(index, 1);
-    res.send({success: true, data: todoList});
+    res.send({
+      success: true,
+      data: todoList
+    });
   }
+});
+
+app.put("/todo/:id", (req, res) => {
+  todoList[req.params.id] = req.body;
+  res.send("Update data successfuly");
 });
 // app.post("/todo", (req, res) => {
 //   let todo = req.body.todo;
@@ -71,11 +84,5 @@ app.delete("/todo/:id", (req, res) => {
 //     res.send({ success: true, data: newTodo});
 //   }
 // });
-
-
-
-
-
-
 
 app.listen(3010, () => console.log("Server is listening on localhost:3010"));

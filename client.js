@@ -1,4 +1,19 @@
 const axios = require("axios");
+const cross = require("cross");
+
+
+
+fetch("http://localhost:3010/todo")
+  .then(rawResponse => {
+    console.log("---------------------------------");
+    console.log("get All");
+    console.log(rawResponse.data);
+    // rawResponse.data();
+  })
+
+  .catch(function(error) {
+    console.log(error);
+  });
 
 // get All
 const getAll = () => {
