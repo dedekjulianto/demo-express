@@ -1,9 +1,9 @@
 const axios = require("axios");
 const cross = require("cross");
 
+const url = "http:/localhost:3010";
 
-
-fetch("http://localhost:3010/todo")
+fetch(`${url}/todo`)
   .then(rawResponse => {
     console.log("---------------------------------");
     console.log("get All");
@@ -18,7 +18,7 @@ fetch("http://localhost:3010/todo")
 // get All
 const getAll = () => {
   return axios
-    .get("http://localhost:3010/todo")
+    .get(`${url}/todo`)
     .then(rawResponse => {
       console.log("---------------------------------");
       console.log("get All");
@@ -35,7 +35,7 @@ const getAll = () => {
 // get One
 const getOne = () => {
   return axios
-    .get("http://localhost:3010/todo/1")
+    .get(`${url}/todo/1`)
     .then(rawResponse => {
       console.log("-----------------------------------");
       console.log("get One");
@@ -49,7 +49,7 @@ const getOne = () => {
 // Create new todo
 const createNew = () => {
   return axios
-    .post("http://localhost:3010/todo", {
+    .post(`${url}/todo`, {
       todo: "New Todo",
       done: false
     })

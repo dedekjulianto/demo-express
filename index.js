@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 let bodyParser = require("body-parser");
 
+const PORT = process.env.PORT || 3010;
+
 let todoList = [{
     todo: "learn express",
     done: true
@@ -85,4 +87,4 @@ app.put("/todo/:id", (req, res) => {
 //   }
 // });
 
-app.listen(3010, () => console.log("Server is listening on localhost:3010"));
+app.listen(PORT, () => console.log(`Server is listening on localhost:${PORT}`));
