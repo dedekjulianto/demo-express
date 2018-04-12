@@ -1,5 +1,4 @@
 const axios = require("axios");
-const cross = require("cross");
 
 const url = "http:/localhost:3010";
 

@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 let bodyParser = require("body-parser");
+const cors = require("cors");
+
 
 const PORT = process.env.PORT || 3010;
 
@@ -13,6 +15,8 @@ let todoList = [{
     done: false
   }
 ];
+
+app.use(cors());
 
 app.use(bodyParser.urlencoded({
   extended: false
