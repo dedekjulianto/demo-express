@@ -25,6 +25,14 @@ app.use(bodyParser.urlencoded({
 // parse application/json
 app.use(bodyParser.json());
 
+app.get("/todo/search", (req, res) => {
+  let seacrhKey = req.query.todo;
+  let result = todoList.filter(todo =>
+    todo.todo.toLowerCase().includes(seacrhKey.toLowerCase())
+  );
+  res.send(result);
+})
+
 app.get("/", (req, res) => {
   res.send("Hello Express!");
 });
@@ -52,6 +60,7 @@ app.get("/todo/:id", (req, res) => {
     });
   }
 });
+
 
 app.delete("/todo/:id", (req, res) => {
   let length = todoList.length;
