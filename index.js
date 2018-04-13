@@ -7,11 +7,11 @@ const cors = require("cors");
 const PORT = process.env.PORT || 3010;
 
 let todoList = [{
-    todo: "learn express",
+    todo: "Learn Express",
     done: true
   },
   {
-    todo: "learn react",
+    todo: "Learn React",
     done: false
   }
 ];
@@ -44,7 +44,7 @@ app.get("/todo", (req, res) => {
 app.post("/todo", (req, res) => {
   let newTodo = req.body;
   todoList.push(newTodo);
-  res.send("New data added successfuly!");
+  res.send("New data added success!");
   // console.log(newTodo);
 });
 
