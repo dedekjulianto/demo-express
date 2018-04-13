@@ -52,21 +52,36 @@ const getOne = () => {
 
 
 // Edit todo
-const editTodo = () => {
+const editTodo = (todo) => {
   return axios
   .put(`${url}/todo/0`, {
-    todo: 'update todo',
+    todo: todo,
     done: true
   })
   .then(function(rawResponse) {
     console.log("---------------------------------------");
     console.log("Edit Todo");
     console.log(rawResponse.data);
+    getAll();
   })
   .catch(err=>{
     console.log(err);
   });
 };
+
+const deleteTodo = () => {
+  return axios
+  .delete(`${url}/todo/0`)
+  .then(function(rawResponse) {
+    console.log("----------------------------------------");
+    console.log("Delete Todo");
+    console.log(rawResponse.data);
+    getAll();
+  })
+  .catch(err=>{
+    console.log(err);
+  });
+}
 
 // Create new todo
 const createNew = (todo, done = false) => {
@@ -86,6 +101,7 @@ const createNew = (todo, done = false) => {
     });
 };
 getAll();
+// editTodo();
 // getOne();
 // createNew();
 // getAll();
